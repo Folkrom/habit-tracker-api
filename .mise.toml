@@ -1,2 +1,17 @@
 [tools]
 "java" = { version = "openjdk-21", release_type = "ga" }
+
+[tasks.docker]
+description = 'Runs the docker containers specified in docker-compose.yml in the background'
+dir = "{{cwd}}"
+run = 'docker compose up -d'
+
+[tasks.docker-down]
+description = 'Shuts down the docker-compose specified containers currently running'
+dir = "{{cwd}}"
+run = 'docker compose down'
+
+[tasks.dev]
+description = 'Starts the quarkus app in dev mode'
+dir = "{{cwd}}"
+run = './mvnw quarkus:dev'
