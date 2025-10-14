@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:13
+    container_name: habit-tracker
+    environment:
+      POSTGRES_USER: dockeruser
+      POSTGRES_PASSWORD: dockerpassword
+      POSTGRES_DB: habit-tracker
+    ports:
+      - 5482:5432
+    networks:
+      - habit_tracker
+    volumes:
+      - ${PWD}/db/scripts:/docker-entrypoint-initdb.d
+networks:
+  habit_tracker:
+    driver: bridge
