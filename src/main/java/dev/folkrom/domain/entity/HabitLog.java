@@ -1,4 +1,4 @@
-package dev.folkrom.core.entity;
+package dev.folkrom.domain.entity;
 
 import java.util.Date;
 

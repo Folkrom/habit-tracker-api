@@ -1,4 +1,7 @@
 package dev.folkrom.domain.repository;
 
-public class HabitRepository {
+import dev.folkrom.domain.entity.Habit;
+
+public interface HabitRepository {
+    void create(Habit habit);
 }

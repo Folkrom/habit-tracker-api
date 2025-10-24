@@ -1,4 +1,4 @@
-package dev.folkrom.core.enums;
+package dev.folkrom.domain.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

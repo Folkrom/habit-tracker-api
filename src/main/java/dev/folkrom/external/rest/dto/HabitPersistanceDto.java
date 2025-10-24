@@ -13,32 +13,23 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
-@Schema(name = "Habit", description = "Represents an habit")
+@Schema(name = "HabitPersistance", description = "Persists an habit")
 public class HabitPersistanceDto {
-    @JsonProperty
-    @Schema(description = "Primary identifier")
-    private Integer id;
     @JsonProperty
     @Schema(description = "Name of the habit")
     private String name;
     @JsonProperty
     @Schema(description = "Description of the habit")
     private String description;
-    @JsonProperty
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
-    @Schema(description = "Date and time when the habit was created", format = "string", implementation = String.class)
-    private LocalDateTime createdAt;
 
     public static HabitPersistanceDto fromEntity(Habit habit) {
         return HabitPersistanceDto.builder()
-                .id(habit.id())
                 .name(habit.name())
                 .description(habit.description())
-                .createdAt(habit.createdAt())
                 .build();
     }
 
     public Habit toEntity() {
-        return new Habit(id, name, description, createdAt);
+        return new Habit(null, name, description, null);
     }
 }
